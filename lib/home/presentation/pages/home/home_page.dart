@@ -19,25 +19,31 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     gridMenu = [
       GridMenuItem(
-        img: "assets/images/home/prep.svg",
-        title: "Хадж",
-        onTap: () => context.pushRoute(const HadjRoute()),
-      ),
+          img: "assets/images/home/prep.svg",
+          title: "Хадж",
+          onTap: () {
+            context.router.push(const PreparationRoute());
+          }),
       GridMenuItem(
         img: "assets/images/home/fine.svg",
         title: "Умра",
-        onTap: () => context.pushRoute(const UmraRoute()),
+        onTap: () {
+          context.router.push(const UmraRoute());
+        },
       ),
       GridMenuItem(
         img: "assets/images/home/prep.svg",
         title: "Даярдык",
-        onTap: () => context.pushRoute(const PreparationRoute()),
+        onTap: () {
+          context.router.push(const PreparationRoute());
+        },
       ),
       GridMenuItem(
-        img: "assets/images/home/fine.svg",
-        title: "Штраф",
-        onTap: () => context.pushRoute(const FineRoute()),
-      ),
+          img: "assets/images/home/fine.svg",
+          title: "Штраф",
+          onTap: () {
+            context.router.push(const FineRoute());
+          }),
     ];
   }
 
@@ -46,6 +52,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0XFF4B7F7F),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  context.router.push(const SettingRoute());
+                },
+                icon: const Icon(
+                  Icons.settings_outlined,
+                  color: Colors.white,
+                ))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(20),

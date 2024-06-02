@@ -5,11 +5,11 @@ import 'package:beyish_jolu/config/routes/router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: MainRoute.page, initial: true),
-        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: HomeRoute.page, initial: true),
         AutoRoute(page: HadjRoute.page),
-        AutoRoute(page: UmraRoute.page),
-        AutoRoute(page: FineRoute.page),
         AutoRoute(page: PreparationRoute.page),
+        AutoRoute(page: FineRoute.page),
+        AutoRoute(page: UmraRoute.page),
+        AutoRoute(page: SettingRoute.page),
       ];
 }
