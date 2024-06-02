@@ -1,8 +1,9 @@
-import 'dart:ui';
-
+import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/config/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+@RoutePage()
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -20,22 +21,22 @@ class _HomePageState extends State<HomePage> {
       GridMenuItem(
         img: "assets/images/home/prep.svg",
         title: "Хадж",
-        onTap: () {},
+        onTap: () => context.pushRoute(const HadjRoute()),
       ),
       GridMenuItem(
         img: "assets/images/home/fine.svg",
         title: "Умра",
-        onTap: () {},
+        onTap: () => context.pushRoute(const UmraRoute()),
       ),
       GridMenuItem(
         img: "assets/images/home/prep.svg",
         title: "Даярдык",
-        onTap: () {},
+        onTap: () => context.pushRoute(const PreparationRoute()),
       ),
       GridMenuItem(
         img: "assets/images/home/fine.svg",
         title: "Штраф",
-        onTap: () {},
+        onTap: () => context.pushRoute(const FineRoute()),
       ),
     ];
   }
@@ -47,22 +48,13 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: const Color(0XFF4B7F7F),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const SizedBox(
-                height: 200,
-                width: 300,
-                child:
-                    DecoratedBox(decoration: BoxDecoration(color: Colors.grey)),
-              ),
-              const Text(
-                "БЕЙИШ ЖОЛУ",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0XFF4B7F7F),
-                ),
+              Image.asset(
+                "assets/images/home/logo_bj.png",
+                height: 177,
+                width: 169,
               ),
               const SizedBox(height: 40),
               Expanded(
@@ -70,8 +62,8 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 18,
-                    mainAxisSpacing: 18,
+                    crossAxisSpacing: 15,
+                    mainAxisSpacing: 15,
                   ),
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: gridMenu.length,
@@ -104,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     );
                   },
                 ),
-              )
+              ),
             ],
           ),
         ));
