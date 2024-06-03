@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
           img: "assets/images/home/prep.svg",
           title: "Хадж",
           onTap: () {
-            context.router.push(const PreparationRoute());
+            context.router.push(const HadjRoute());
           }),
       GridMenuItem(
         img: "assets/images/home/fine.svg",
