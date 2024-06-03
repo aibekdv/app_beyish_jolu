@@ -1,4 +1,4 @@
-import 'package:beyish_jolu/config/routes/router.dart';
+import 'package:beyish_jolu/core/routes/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
