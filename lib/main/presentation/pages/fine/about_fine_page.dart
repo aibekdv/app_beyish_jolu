@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class AboutHadjPage extends StatelessWidget {
+class AboutFinePage extends StatelessWidget {
   final String title;
   final String description;
-  const AboutHadjPage(
+  const AboutFinePage(
       {super.key, required this.title, required this.description});
 
   @override
@@ -42,8 +42,6 @@ class AboutHadjPage extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 50,
-                        width: double.infinity,
                         padding: const EdgeInsets.all(12.0),
                         decoration: BoxDecoration(
                           color: const Color(0XFF4B7F7F),
