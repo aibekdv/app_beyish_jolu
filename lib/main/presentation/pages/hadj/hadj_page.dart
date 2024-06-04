@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
+import 'package:beyish_jolu/main/domain/models/about_hadj_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -32,7 +33,9 @@ class HadjPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    context.router.push(const AboutHadjRoute());
+                    context.router.push(AboutHadjRoute(
+                        title: aboutHadjModel[index].title,
+                        description: aboutHadjModel[index].description));
                   },
                   child: SizedBox(
                     width: double.infinity,
@@ -40,11 +43,11 @@ class HadjPage extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white),
-                      child: const Padding(
-                        padding: EdgeInsets.all(12.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          'Аба учагына отурганда же башка унааларга отурганда окулуучу дуа',
-                          style: TextStyle(
+                          aboutHadjModel[index].title,
+                          style: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -57,7 +60,7 @@ class HadjPage extends StatelessWidget {
                   height: 10,
                 );
               },
-              itemCount: 19),
+              itemCount: aboutHadjModel.length),
         ),
       ]),
     );

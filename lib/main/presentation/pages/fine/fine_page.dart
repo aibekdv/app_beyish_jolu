@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/main/domain/models/about_fine_model.dart';
 import 'package:flutter/material.dart';
 
