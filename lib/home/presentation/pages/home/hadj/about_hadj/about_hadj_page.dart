@@ -23,7 +23,7 @@ class AboutHadjPage extends StatelessWidget {
           "Ажылык  бөлүмү",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
-        centerTitle: true,
+        centerTitle: true, //////////////
         backgroundColor: const Color(0XFF4B7F7F),
       ),
       body: Padding(
