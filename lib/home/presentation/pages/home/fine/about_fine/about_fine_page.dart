@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class AboutHadjPage extends StatelessWidget {
+class AboutFinePage extends StatelessWidget {
   final String title;
   final String description;
-  const AboutHadjPage(
+  const AboutFinePage(
       {super.key, required this.title, required this.description});
 
   @override
@@ -20,7 +20,7 @@ class AboutHadjPage extends StatelessWidget {
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
-          "Ажылык  бөлүмү",
+          "Айып жазалар бөлүмү",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
