@@ -22,6 +22,7 @@ import 'package:beyish_jolu/home/presentation/pages/home/setting/setting_page.da
     as _i6;
 import 'package:beyish_jolu/home/presentation/pages/home/umra/umra_page.dart'
     as _i7;
+import 'package:flutter/material.dart' as _i9;
 
 abstract class $AppRouter extends _i8.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -29,9 +30,14 @@ abstract class $AppRouter extends _i8.RootStackRouter {
   @override
   final Map<String, _i8.PageFactory> pagesMap = {
     AboutHadjRoute.name: (routeData) {
+      final args = routeData.argsAs<AboutHadjRouteArgs>();
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.AboutHadjPage(),
+        child: _i1.AboutHadjPage(
+          key: args.key,
+          title: args.title,
+          description: args.description,
+        ),
       );
     },
     FineRoute.name: (routeData) {
@@ -75,16 +81,45 @@ abstract class $AppRouter extends _i8.RootStackRouter {
 
 /// generated route for
 /// [_i1.AboutHadjPage]
-class AboutHadjRoute extends _i8.PageRouteInfo<void> {
-  const AboutHadjRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class AboutHadjRoute extends _i8.PageRouteInfo<AboutHadjRouteArgs> {
+  AboutHadjRoute({
+    _i9.Key? key,
+    required String title,
+    required String description,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           AboutHadjRoute.name,
+          args: AboutHadjRouteArgs(
+            key: key,
+            title: title,
+            description: description,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'AboutHadjRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i8.PageInfo<AboutHadjRouteArgs> page =
+      _i8.PageInfo<AboutHadjRouteArgs>(name);
+}
+
+class AboutHadjRouteArgs {
+  const AboutHadjRouteArgs({
+    this.key,
+    required this.title,
+    required this.description,
+  });
+
+  final _i9.Key? key;
+
+  final String title;
+
+  final String description;
+
+  @override
+  String toString() {
+    return 'AboutHadjRouteArgs{key: $key, title: $title, description: $description}';
+  }
 }
 
 /// generated route for

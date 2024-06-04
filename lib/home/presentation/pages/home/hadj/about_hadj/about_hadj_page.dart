@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class AboutHadjPage extends StatelessWidget {
-  const AboutHadjPage({super.key});
+  final String title;
+  final String description;
+  const AboutHadjPage(
+      {super.key, required this.title, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -17,72 +20,119 @@ class AboutHadjPage extends StatelessWidget {
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
-          "Хадж  бөлүмү",
+          "Ажылык  бөлүмү",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         backgroundColor: const Color(0XFF4B7F7F),
       ),
-      body: Stack(children: [
-        Image.asset('assets/images/home/Vector.png'),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(12.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 450,
+              child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: const Color(0XFF4B7F7F),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Сапарга аттануунунудасы (Инструкция)',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                    color: const Color(0XFFD2D6DF),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(12.0),
+                        decoration: BoxDecoration(
+                          color: const Color(0XFF4B7F7F),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            title,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Container(
+                            padding: const EdgeInsets.all(16.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text(
+                              description,
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                    padding: const EdgeInsets.all(16.0),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      'Lorem ipsum dolor sit amet consectetur. Mauris consequat nullam sit vel cursus sed risus. Elit lorem at mattis donec metus est nulla amet interdum. Turtor commodo diam adipiscing at magna leo dui donec. Sagittis mauris a duis metus id. Vestibulum a nam eget odio adipiscing facilisis ornare. Pharetra orci gravida eget vel quam purus tristique nullam. Nisi est at lacus semper justo dui diam massa mi.',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
+              // Container(
+              //   padding: const EdgeInsets.all(12.0),
+              //   decoration: BoxDecoration(
+              //     color: const Color(0XFF4B7F7F),
+              //     borderRadius: BorderRadius.circular(10),
+              //   ),
+              //   child: Center(
+              //     child: Text(
+              //       title,
+              //       style: const TextStyle(
+              //           color: Colors.white,
+              //           fontSize: 15,
+              //           fontWeight: FontWeight.w500),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 16),
+              // Expanded(
+              //   child: SingleChildScrollView(
+              //     child: Container(
+              //       padding: const EdgeInsets.all(16.0),
+              //       decoration: BoxDecoration(
+              //         color: Colors.grey.shade200,
+              //         borderRadius: BorderRadius.circular(10),
+              //       ),
+              //       child: Text(
+              //         description,
+              //         style: const TextStyle(fontSize: 15, color: Colors.black),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomButton(
+                  onTap: () {},
+                  text: 'Назад',
                 ),
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomButton(
-                    onTap: () {},
-                    text: 'Назад',
-                  ),
-                  const Text('1/9'),
-                  CustomButton(onTap: () {}, text: 'Вперед'),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Slider(
-                thumbColor: Colors.white,
-                value: 5,
-                min: 1,
-                max: 9,
-                onChanged: (value) {},
-              ),
-            ],
-          ),
+                const Text('1/9'),
+                CustomButton(onTap: () {}, text: 'Вперед'),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Slider(
+              thumbColor: Colors.white,
+              value: 5,
+              min: 1,
+              max: 9,
+              onChanged: (value) {},
+            ),
+          ],
         ),
-      ]),
+      ),
     );
   }
 }
