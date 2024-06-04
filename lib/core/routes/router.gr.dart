@@ -40,9 +40,14 @@ abstract class $AppRouter extends _i9.RootStackRouter {
       );
     },
     AboutHadjRoute.name: (routeData) {
+      final args = routeData.argsAs<AboutHadjRouteArgs>();
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.AboutHadjPage(),
+        child: _i2.AboutHadjPage(
+          key: args.key,
+          title: args.title,
+          description: args.description,
+        ),
       );
     },
     FineRoute.name: (routeData) {
@@ -129,16 +134,45 @@ class AboutFineRouteArgs {
 
 /// generated route for
 /// [_i2.AboutHadjPage]
-class AboutHadjRoute extends _i9.PageRouteInfo<void> {
-  const AboutHadjRoute({List<_i9.PageRouteInfo>? children})
-      : super(
+class AboutHadjRoute extends _i9.PageRouteInfo<AboutHadjRouteArgs> {
+  AboutHadjRoute({
+    _i10.Key? key,
+    required String title,
+    required String description,
+    List<_i9.PageRouteInfo>? children,
+  }) : super(
           AboutHadjRoute.name,
+          args: AboutHadjRouteArgs(
+            key: key,
+            title: title,
+            description: description,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'AboutHadjRoute';
 
-  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+  static const _i9.PageInfo<AboutHadjRouteArgs> page =
+      _i9.PageInfo<AboutHadjRouteArgs>(name);
+}
+
+class AboutHadjRouteArgs {
+  const AboutHadjRouteArgs({
+    this.key,
+    required this.title,
+    required this.description,
+  });
+
+  final _i10.Key? key;
+
+  final String title;
+
+  final String description;
+
+  @override
+  String toString() {
+    return 'AboutHadjRouteArgs{key: $key, title: $title, description: $description}';
+  }
 }
 
 /// generated route for
