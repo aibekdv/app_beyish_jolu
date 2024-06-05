@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class AboutPage extends StatelessWidget {
@@ -14,8 +16,10 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isdark = context.watch<ThemeCubit>().state.isdark;
+
     return Scaffold(
-      backgroundColor: const Color(0XffEDEDF2),
+      backgroundColor: isdark ? Colors.black26 : const Color(0XffEDEDF2),
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -29,7 +33,7 @@ class AboutPage extends StatelessWidget {
               const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
-        backgroundColor: const Color(0XFF4B7F7F),
+        backgroundColor: isdark ? Colors.black26 : const Color(0XFF4B7F7F),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
