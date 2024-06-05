@@ -1,4 +1,4 @@
-import 'package:beyish_jolu/main/domain/repositories/settings/setting.dart';
+import 'package:beyish_jolu/features/main/domain/repositories/settings/setting.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingRepository implements SettingRepositoryInterface {

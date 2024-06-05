@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:beyish_jolu/core/routes/router.dart';
 import 'package:beyish_jolu/core/theme/theme.dart';
-import 'package:beyish_jolu/main/domain/repositories/settings/setting_repository.dart';
+import 'package:beyish_jolu/features/main/domain/repositories/settings/setting_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

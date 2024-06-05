@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:beyish_jolu/main/domain/repositories/settings/setting.dart';
+import 'package:beyish_jolu/features/main/domain/repositories/settings/setting.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'theme_state.dart';
