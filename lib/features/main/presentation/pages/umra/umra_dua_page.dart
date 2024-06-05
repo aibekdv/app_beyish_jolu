@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:beyish_jolu/core/routes/router.gr.dart';
-import 'package:beyish_jolu/main/domain/models/about_hadj_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_detail_page.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class HadjPage extends StatelessWidget {
-  const HadjPage({super.key});
+class UmraDuaPage extends StatelessWidget {
+  final SectionModel section;
+  const UmraDuaPage({super.key, required this.section});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,10 @@ class HadjPage extends StatelessWidget {
           ),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          "Хадж",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+        title: Text(
+          section.title,
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         backgroundColor: const Color(0XFF4B7F7F),
@@ -31,11 +33,19 @@ class HadjPage extends StatelessWidget {
           padding: const EdgeInsets.only(left: 16.00, right: 16.00, top: 25),
           child: ListView.separated(
               itemBuilder: (BuildContext context, int index) {
+                final dua = section.duas[index];
                 return GestureDetector(
                   onTap: () {
-                    context.router.push(AboutHadjRoute(
-                        title: aboutHadjModel[index].title,
-                        description: aboutHadjModel[index].description));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UmraDetailPage(
+                                title: section.title,
+                                arabicText: section.duas[index].arabicText,
+                                subtitle: section.duas[index].subtitle,
+                                transliteration:
+                                    section.duas[index].transliteration,
+                                translation: section.duas[index].translation)));
                   },
                   child: SizedBox(
                     width: double.infinity,
@@ -46,7 +56,7 @@ class HadjPage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          aboutHadjModel[index].title,
+                          dua.subtitle,
                           style: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
@@ -60,7 +70,7 @@ class HadjPage extends StatelessWidget {
                   height: 10,
                 );
               },
-              itemCount: aboutHadjModel.length),
+              itemCount: section.duas.length),
         ),
       ]),
     );

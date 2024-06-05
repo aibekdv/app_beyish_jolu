@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/main/presentation/widgets/home/settings_widget.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/home/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -45,7 +45,7 @@ class SettingPage extends StatelessWidget {
                 endIndent: Checkbox.width,
               ),
               SettingsWidget(
-                text: "Колдонмону баалаңыз",
+                text: "Тиркемени баалаңыз",
                 image: SvgPicture.asset("assets/images/home/rating.svg"),
                 icon: Icons.arrow_forward_ios_rounded,
               ),

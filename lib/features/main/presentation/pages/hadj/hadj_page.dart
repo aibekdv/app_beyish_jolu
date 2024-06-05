@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
-import 'package:beyish_jolu/main/domain/models/preparation_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/about_hadj_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class PreparationPage extends StatelessWidget {
-  const PreparationPage({super.key});
+class HadjPage extends StatelessWidget {
+  const HadjPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,9 @@ class PreparationPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    context.router.push(AboutPreparationRoute(
-                        title: preparationModel[index].title,
-                        description: preparationModel[index].description));
+                    context.router.push(AboutHadjRoute(
+                        title: aboutHadjModel[index].title,
+                        description: aboutHadjModel[index].description));
                   },
                   child: SizedBox(
                     width: double.infinity,
@@ -46,7 +46,7 @@ class PreparationPage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          preparationModel[index].title,
+                          aboutHadjModel[index].title,
                           style: const TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
                         ),
@@ -60,7 +60,7 @@ class PreparationPage extends StatelessWidget {
                   height: 10,
                 );
               },
-              itemCount: preparationModel.length),
+              itemCount: aboutHadjModel.length),
         ),
       ]),
     );

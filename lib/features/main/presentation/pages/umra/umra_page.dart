@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/main/presentation/widgets/home/module_hor_widget.dart';
+import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_dua_page.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,14 +15,6 @@ class UmraPage extends StatefulWidget {
 }
 
 class _UmraPageState extends State<UmraPage> {
-  List<String> modules = [
-    "Мекке бөлүмү",
-    "Таваф бөлүмү",
-    "Саъий бөлүмү",
-    "Мадина бөлүмү",
-  ];
-  final category = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,17 +60,23 @@ class _UmraPageState extends State<UmraPage> {
                       ),
                     ],
                   ),
-                  title: modules[index],
+                  title: sections[index].title,
                   trailing: const Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 15,
                     color: Colors.grey,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                UmraDuaPage(section: sections[index])));
+                  },
                 ),
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: 20),
-                itemCount: modules.length,
+                itemCount: sections.length,
               ),
             ),
           ],
