@@ -2,11 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class AboutHadjPage extends StatelessWidget {
+class AboutPage extends StatelessWidget {
+  final String appBarTitle;
   final String title;
   final String description;
-  const AboutHadjPage(
-      {super.key, required this.title, required this.description});
+  const AboutPage(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.appBarTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,10 @@ class AboutHadjPage extends StatelessWidget {
           ),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          "Айып жазалар бөлүмү",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+        title: Text(
+          appBarTitle,
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         backgroundColor: const Color(0XFF4B7F7F),
