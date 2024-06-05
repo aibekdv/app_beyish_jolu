@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/features/main/domain/models/about_hadj_model.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +32,8 @@ class HadjPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    context.router.push(AboutHadjRoute(
+                    context.router.push(AboutRoute(
+                        appBarTitle: 'Ажылык бөлүмү',
                         title: aboutHadjModel[index].title,
                         description: aboutHadjModel[index].description));
                   },
