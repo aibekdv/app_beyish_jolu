@@ -1,21 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/main/domain/models/about_hadj_model.dart';
-import 'package:beyish_jolu/main/presentation/widgets/home/module_hor_widget.dart';
+import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_dua_page.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
-class CategoryHadjPage extends StatefulWidget {
-  const CategoryHadjPage({super.key});
+class UmraPage extends StatefulWidget {
+  const UmraPage({super.key});
 
   @override
-  State<CategoryHadjPage> createState() => _CategoryHadjPageState();
+  State<UmraPage> createState() => _UmraPageState();
 }
 
-class _CategoryHadjPageState extends State<CategoryHadjPage> {
-  final category = TextEditingController();
-
+class _UmraPageState extends State<UmraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +27,7 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
           ),
           iconTheme: const IconThemeData(color: AppColors.whiteColor),
           title: const Text(
-            "Ажылык",
+            "Умра",
             style: TextStyle(
                 color: AppColors.whiteColor, fontWeight: FontWeight.w500),
           ),
@@ -39,7 +38,8 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
           children: [
             Image.asset('assets/images/home/Vector.png'),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 140),
               child: ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -60,17 +60,23 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
                       ),
                     ],
                   ),
-                  title: aboutHadjModel[index].title,
+                  title: sections[index].title,
                   trailing: const Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 15,
                     color: Colors.grey,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                UmraDuaPage(section: sections[index])));
+                  },
                 ),
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: 20),
-                itemCount: aboutHadjModel.length,
+                itemCount: sections.length,
               ),
             ),
           ],

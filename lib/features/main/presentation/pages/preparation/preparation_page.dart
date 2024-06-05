@@ -1,10 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
-import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:beyish_jolu/main/presentation/widgets/sliver_container_widget.dart';
 import 'package:flutter/material.dart';
+
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/main/domain/models/preparation_model.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class PreparationPage extends StatelessWidget {
@@ -14,8 +14,6 @@ class PreparationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isdark = context.watch<ThemeCubit>().state.isdark;
-
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
@@ -29,7 +27,7 @@ class PreparationPage extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
-        backgroundColor: isdark ? Colors.black : const Color(0XFF4B7F7F),
+        backgroundColor: const Color(0XFF4B7F7F),
       ),
       backgroundColor: const Color(0XffEDEDF2),
       body: CustomScrollView(

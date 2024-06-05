@@ -1,24 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/main/presentation/widgets/home/module_hor_widget.dart';
+import 'package:beyish_jolu/features/main/domain/models/about_hadj_model.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
-class UmraPage extends StatefulWidget {
-  const UmraPage({super.key});
+class CategoryHadjPage extends StatefulWidget {
+  const CategoryHadjPage({super.key});
 
   @override
-  State<UmraPage> createState() => _UmraPageState();
+  State<CategoryHadjPage> createState() => _CategoryHadjPageState();
 }
 
-class _UmraPageState extends State<UmraPage> {
-  List<String> modules = [
-    "Мекке бөлүмү",
-    "Таваф бөлүмү",
-    "Саъий бөлүмү",
-    "Мадина бөлүмү",
-  ];
+class _CategoryHadjPageState extends State<CategoryHadjPage> {
   final category = TextEditingController();
 
   @override
@@ -33,7 +28,7 @@ class _UmraPageState extends State<UmraPage> {
           ),
           iconTheme: const IconThemeData(color: AppColors.whiteColor),
           title: const Text(
-            "Умра",
+            "Ажылык",
             style: TextStyle(
                 color: AppColors.whiteColor, fontWeight: FontWeight.w500),
           ),
@@ -44,8 +39,7 @@ class _UmraPageState extends State<UmraPage> {
           children: [
             Image.asset('assets/images/home/Vector.png'),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 140),
+              padding: const EdgeInsets.all(16.0),
               child: ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -66,7 +60,7 @@ class _UmraPageState extends State<UmraPage> {
                       ),
                     ],
                   ),
-                  title: modules[index],
+                  title: aboutHadjModel[index].title,
                   trailing: const Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 15,
@@ -76,7 +70,7 @@ class _UmraPageState extends State<UmraPage> {
                 ),
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: 20),
-                itemCount: modules.length,
+                itemCount: aboutHadjModel.length,
               ),
             ),
           ],
