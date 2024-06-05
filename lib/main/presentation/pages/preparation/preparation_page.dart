@@ -46,7 +46,8 @@ class PreparationPage extends StatelessWidget {
             title: preparationModel1.map((e) => e.title).toList(),
             itemCount: preparationModel1.length,
             onTap: (index) {
-              context.router.push(AboutPreparationRoute(
+              context.router.push(AboutRoute(
+                  appBarTitle: 'Даярдык бөлүмү',
                   title: preparationModel1[index].title,
                   description: preparationModel1[index].description));
             },
@@ -65,7 +66,8 @@ class PreparationPage extends StatelessWidget {
             title: preparationmodel2.map((e) => e.title).toList(),
             itemCount: preparationmodel2.length,
             onTap: (index) {
-              context.router.push(AboutPreparationRoute(
+              context.router.push(AboutRoute(
+                  appBarTitle: 'Даярдык бөлүмү',
                   title: preparationmodel2[index].title,
                   description: preparationmodel2[index].description));
             },
@@ -84,9 +86,33 @@ class PreparationPage extends StatelessWidget {
             title: preparationmodel3.map((e) => e.title).toList(),
             itemCount: preparationmodel3.length,
             onTap: (index) {
-              context.router.push(AboutPreparationRoute(
+              context.router.push(AboutRoute(
+                  appBarTitle: 'Даярдык бөлүмү',
                   title: preparationmodel3[index].title,
                   description: preparationmodel3[index].description));
+            },
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15),
+          ),
+          const SliverToBoxAdapter(
+            child: Text(
+              'Умра жана Ажылык учурундагы тыйуулар',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15),
+          ),
+          SliverContainer(
+            title: preparationmodel4.map((e) => e.title).toList(),
+            itemCount: preparationmodel4.length,
+            onTap: (index) {
+              context.router.push(AboutRoute(
+                  appBarTitle: 'Даярдык бөлүмү',
+                  title: preparationmodel4[index].title,
+                  description: preparationmodel4[index].description));
             },
           ),
         ],

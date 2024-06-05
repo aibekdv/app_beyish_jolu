@@ -33,7 +33,8 @@ class HadjPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    context.router.push(AboutHadjRoute(
+                    context.router.push(AboutRoute(
+                        appBarTitle: 'Ажылык бөлүмү',
                         title: aboutHadjModel[index].title,
                         description: aboutHadjModel[index].description));
                   },
