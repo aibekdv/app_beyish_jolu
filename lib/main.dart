@@ -1,24 +1,57 @@
-import 'package:beyish_jolu/core/routes/router.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:beyish_jolu/core/routes/router.dart';
+import 'package:beyish_jolu/core/theme/theme.dart';
+import 'package:beyish_jolu/features/main/domain/repositories/settings/setting_repository.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(MyApp(
+    preferences: await SharedPreferences.getInstance(),
+  ));
 }
 
 AppRouter appRouter = AppRouter();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  final SharedPreferences preferences;
+
+  const MyApp({
+    super.key,
+    required this.preferences,
+  });
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late SettingRepository settingRepository = SettingRepository(
+    preferences: widget.preferences,
+  );
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeCubit(settingRepository: settingRepository),
+        ),
+      ],
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, themeState) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            theme: themeState.isdark ? darkTheme : lightTheme,
+            routerConfig: appRouter.config(),
+          );
+        },
       ),
-      routerConfig: appRouter.config(),
     );
   }
 }

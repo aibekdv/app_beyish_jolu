@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     gridMenu = [
       GridMenuItem(
           img: "assets/images/home/prep.svg",
-          title: "Хадж",
+          title: "Ажылык",
           onTap: () {
             context.router.push(const HadjRoute());
           }),
@@ -41,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       ),
       GridMenuItem(
           img: "assets/images/home/fine.svg",
-          title: "Штраф",
+          title: "Айып жазалары",
           onTap: () {
             context.router.push(const FineRoute());
           }),
@@ -50,10 +52,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isdark = context.watch<ThemeCubit>().state.isdark;
+
     return Scaffold(
         backgroundColor: AppColors.bgcColor,
         appBar: AppBar(
-          backgroundColor: AppColors.mainColor,
+          backgroundColor: isdark ? Colors.black : AppColors.mainColor,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(20),
@@ -95,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (BuildContext context, int index) {
                       return DecoratedBox(
                         decoration: BoxDecoration(
-                          color: AppColors.mainColor,
+                          color: isdark ? Colors.black : AppColors.mainColor,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: GestureDetector(
@@ -106,6 +110,7 @@ class _HomePageState extends State<HomePage> {
                               SvgPicture.asset(
                                 gridMenu[index].img,
                                 height: 45,
+                                color: AppColors.whiteColor,
                               ),
                               const SizedBox(height: 10),
                               Text(

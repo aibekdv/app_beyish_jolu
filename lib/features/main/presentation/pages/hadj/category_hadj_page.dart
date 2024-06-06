@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/features/main/domain/models/about_hadj_model.dart';
+import 'package:beyish_jolu/features/main/models/hadj_model.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -60,17 +61,21 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
                       ),
                     ],
                   ),
-                  title: aboutHadjModel[index].title,
+                  title: hadj[index].title,
                   trailing: const Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 15,
                     color: Colors.grey,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    context.router.push(HadjRoute(
+                      hadj: hadj[index],
+                    ));
+                  },
                 ),
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: 20),
-                itemCount: aboutHadjModel.length,
+                itemCount: hadj.length,
               ),
             ),
           ],
