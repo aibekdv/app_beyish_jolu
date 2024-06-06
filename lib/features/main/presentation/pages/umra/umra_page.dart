@@ -32,7 +32,6 @@ class _UmraPageState extends State<UmraPage> {
                 color: AppColors.whiteColor, fontWeight: FontWeight.w500),
           ),
           centerTitle: true,
-          backgroundColor: AppColors.mainColor,
         ),
         body: Stack(
           children: [

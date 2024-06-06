@@ -52,7 +52,7 @@ class UmraDetailPage extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 50,
+                        height: 70,
                         width: double.infinity,
                         padding: const EdgeInsets.all(12.0),
                         decoration: BoxDecoration(
@@ -62,9 +62,11 @@ class UmraDetailPage extends StatelessWidget {
                         child: Text(
                           subtitle,
                           textAlign: TextAlign.center,
+                          maxLines: 2,
                           style: const TextStyle(
+                              //
                               color: Colors.white,
-                              fontSize: 15,
+                              fontSize: 17,
                               fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -81,18 +83,44 @@ class UmraDetailPage extends StatelessWidget {
                                 Text(
                                   arabicText,
                                   style: const TextStyle(
-                                      fontSize: 15, color: Colors.black),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
                                 ),
-                                Text(
-                                  transliteration,
-                                  style: const TextStyle(
-                                      fontSize: 15, color: Colors.black),
+                                const SizedBox(height: 15),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Окулушу:  ',
+                                    style: const TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                          text: transliteration,
+                                          style: const TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w400))
+                                    ],
+                                  ),
                                 ),
-                                Text(
-                                  translation,
-                                  style: const TextStyle(
-                                      fontSize: 15, color: Colors.black),
-                                ),
+                                const SizedBox(height: 15),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Которулушу: ',
+                                    style: const TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                          text: translation,
+                                          style: const TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w400))
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           ),
