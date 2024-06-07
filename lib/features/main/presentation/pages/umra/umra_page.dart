@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
 import 'package:beyish_jolu/features/main/models/umra_model.dart';
-import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_dua_page.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,6 +20,7 @@ class _UmraPageState extends State<UmraPage> {
     return Scaffold(
         backgroundColor: AppColors.bgcColor,
         appBar: AppBar(
+          backgroundColor: AppColors.mainColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(20),
@@ -66,11 +67,7 @@ class _UmraPageState extends State<UmraPage> {
                     color: Colors.grey,
                   ),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                UmraDuaPage(section: sections[index])));
+                    context.router.push(UmraDuaRoute(section: sections[index]));
                   },
                 ),
                 separatorBuilder: (context, index) =>

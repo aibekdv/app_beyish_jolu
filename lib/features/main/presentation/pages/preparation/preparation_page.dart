@@ -5,8 +5,6 @@ import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/sliver_container_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:beyish_jolu/core/routes/router.gr.dart';
-
 @RoutePage()
 class PreparationPage extends StatelessWidget {
   const PreparationPage({

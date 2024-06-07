@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
+import 'package:beyish_jolu/features/main/models/hadj_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,7 +26,9 @@ class _HomePageState extends State<HomePage> {
           img: "assets/images/home/prep.svg",
           title: "Ажылык",
           onTap: () {
-            context.router.push(const HadjRoute());
+            context.router.push(HadjRoute(
+              hadj: hadj[0],
+            ));
           }),
       GridMenuItem(
         img: "assets/images/home/fine.svg",

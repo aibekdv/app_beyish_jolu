@@ -15,8 +15,6 @@ class CategoryHadjPage extends StatefulWidget {
 }
 
 class _CategoryHadjPageState extends State<CategoryHadjPage> {
-  final category = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
