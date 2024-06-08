@@ -32,7 +32,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
   }
 
   void nextPage() {
-    if (_currentPage < widget.arabicText.length - 1) {
+    if (_currentPage < widget.title.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -76,7 +76,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
               child: PageView.builder(
                   controller: pageController,
                   onPageChanged: onPagechanged,
-                  itemCount: widget.arabicText.length,
+                  itemCount: widget.title.length,
                   itemBuilder: (context, index) {
                     return SizedBox(
                       width: double.infinity,
@@ -181,7 +181,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
                   onTap: previousPage,
                   text: 'Назад',
                 ),
-                Text('${_currentPage + 1}/${widget.arabicText.length}'),
+                Text('${_currentPage + 1}/${widget.title.length}'),
                 CustomButton(onTap: nextPage, text: 'Вперед'),
               ],
             ),
@@ -190,7 +190,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
               thumbColor: Colors.white,
               value: (_currentPage + 1).toDouble(),
               min: 1,
-              max: widget.arabicText.length.toDouble(),
+              max: widget.title.length.toDouble(),
               onChanged: (value) {
                 int page = value.toInt();
                 pageController.jumpToPage(page);
