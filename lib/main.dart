@@ -48,7 +48,8 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: themeState.isdark ? darkTheme : lightTheme,
-            routerConfig: appRouter.config(),
+            routerDelegate: appRouter.delegate(),
+            routeInformationParser: appRouter.defaultRouteParser(),
           );
         },
       ),

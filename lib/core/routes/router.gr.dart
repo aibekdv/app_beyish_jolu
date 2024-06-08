@@ -8,8 +8,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:beyish_jolu/features/main/models/umra_model.dart' as _i13;
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:beyish_jolu/features/main/models/umra_model.dart' as _i14;
 import 'package:beyish_jolu/features/main/presentation/pages/fine/fine_page.dart'
     as _i3;
 import 'package:beyish_jolu/features/main/presentation/pages/hadj/category_hadj_page.dart'
@@ -25,21 +25,22 @@ import 'package:beyish_jolu/features/main/presentation/pages/preparation/prepara
 import 'package:beyish_jolu/features/main/presentation/pages/settings/settings_page.dart'
     as _i7;
 import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_detail_page.dart'
-    as _i8;
-import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_dua_page.dart'
     as _i9;
-import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_page.dart'
+import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_dua_page.dart'
     as _i10;
-import 'package:flutter/material.dart' as _i12;
+import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_page.dart'
+    as _i11;
+import 'package:beyish_jolu/features/splash_screen.dart' as _i8;
+import 'package:flutter/material.dart' as _i13;
 
-abstract class $AppRouter extends _i11.RootStackRouter {
+abstract class $AppRouter extends _i12.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i11.PageFactory> pagesMap = {
+  final Map<String, _i12.PageFactory> pagesMap = {
     AboutRoute.name: (routeData) {
       final args = routeData.argsAs<AboutRouteArgs>();
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i1.AboutPage(
           key: args.key,
@@ -50,20 +51,20 @@ abstract class $AppRouter extends _i11.RootStackRouter {
       );
     },
     CategoryHadjRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i2.CategoryHadjPage(),
       );
     },
     FineRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i3.FinePage(),
       );
     },
     HadjRoute.name: (routeData) {
       final args = routeData.argsAs<HadjRouteArgs>();
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i4.HadjPage(
           key: args.key,
@@ -72,28 +73,34 @@ abstract class $AppRouter extends _i11.RootStackRouter {
       );
     },
     HomeRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i5.HomePage(),
       );
     },
     PreparationRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i6.PreparationPage(),
       );
     },
     SettingRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i7.SettingPage(),
       );
     },
+    SplashRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i8.SplashScreen(),
+      );
+    },
     UmraDetailRoute.name: (routeData) {
       final args = routeData.argsAs<UmraDetailRouteArgs>();
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.UmraDetailPage(
+        child: _i9.UmraDetailPage(
           key: args.key,
           title: args.title,
           arabicText: args.arabicText,
@@ -105,18 +112,18 @@ abstract class $AppRouter extends _i11.RootStackRouter {
     },
     UmraDuaRoute.name: (routeData) {
       final args = routeData.argsAs<UmraDuaRouteArgs>();
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i9.UmraDuaPage(
+        child: _i10.UmraDuaPage(
           key: args.key,
           section: args.section,
         ),
       );
     },
     UmraRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i10.UmraPage(),
+        child: const _i11.UmraPage(),
       );
     },
   };
@@ -124,13 +131,13 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 
 /// generated route for
 /// [_i1.AboutPage]
-class AboutRoute extends _i11.PageRouteInfo<AboutRouteArgs> {
+class AboutRoute extends _i12.PageRouteInfo<AboutRouteArgs> {
   AboutRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     required String title,
     required String description,
     required String appBarTitle,
-    List<_i11.PageRouteInfo>? children,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           AboutRoute.name,
           args: AboutRouteArgs(
@@ -144,8 +151,8 @@ class AboutRoute extends _i11.PageRouteInfo<AboutRouteArgs> {
 
   static const String name = 'AboutRoute';
 
-  static const _i11.PageInfo<AboutRouteArgs> page =
-      _i11.PageInfo<AboutRouteArgs>(name);
+  static const _i12.PageInfo<AboutRouteArgs> page =
+      _i12.PageInfo<AboutRouteArgs>(name);
 }
 
 class AboutRouteArgs {
@@ -156,7 +163,7 @@ class AboutRouteArgs {
     required this.appBarTitle,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final String title;
 
@@ -172,8 +179,8 @@ class AboutRouteArgs {
 
 /// generated route for
 /// [_i2.CategoryHadjPage]
-class CategoryHadjRoute extends _i11.PageRouteInfo<void> {
-  const CategoryHadjRoute({List<_i11.PageRouteInfo>? children})
+class CategoryHadjRoute extends _i12.PageRouteInfo<void> {
+  const CategoryHadjRoute({List<_i12.PageRouteInfo>? children})
       : super(
           CategoryHadjRoute.name,
           initialChildren: children,
@@ -181,13 +188,13 @@ class CategoryHadjRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'CategoryHadjRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i3.FinePage]
-class FineRoute extends _i11.PageRouteInfo<void> {
-  const FineRoute({List<_i11.PageRouteInfo>? children})
+class FineRoute extends _i12.PageRouteInfo<void> {
+  const FineRoute({List<_i12.PageRouteInfo>? children})
       : super(
           FineRoute.name,
           initialChildren: children,
@@ -195,16 +202,16 @@ class FineRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'FineRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i4.HadjPage]
-class HadjRoute extends _i11.PageRouteInfo<HadjRouteArgs> {
+class HadjRoute extends _i12.PageRouteInfo<HadjRouteArgs> {
   HadjRoute({
-    _i12.Key? key,
-    required _i13.SectionModel hadj,
-    List<_i11.PageRouteInfo>? children,
+    _i13.Key? key,
+    required _i14.SectionModel hadj,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           HadjRoute.name,
           args: HadjRouteArgs(
@@ -216,8 +223,8 @@ class HadjRoute extends _i11.PageRouteInfo<HadjRouteArgs> {
 
   static const String name = 'HadjRoute';
 
-  static const _i11.PageInfo<HadjRouteArgs> page =
-      _i11.PageInfo<HadjRouteArgs>(name);
+  static const _i12.PageInfo<HadjRouteArgs> page =
+      _i12.PageInfo<HadjRouteArgs>(name);
 }
 
 class HadjRouteArgs {
@@ -226,9 +233,9 @@ class HadjRouteArgs {
     required this.hadj,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
-  final _i13.SectionModel hadj;
+  final _i14.SectionModel hadj;
 
   @override
   String toString() {
@@ -238,8 +245,8 @@ class HadjRouteArgs {
 
 /// generated route for
 /// [_i5.HomePage]
-class HomeRoute extends _i11.PageRouteInfo<void> {
-  const HomeRoute({List<_i11.PageRouteInfo>? children})
+class HomeRoute extends _i12.PageRouteInfo<void> {
+  const HomeRoute({List<_i12.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -247,13 +254,13 @@ class HomeRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i6.PreparationPage]
-class PreparationRoute extends _i11.PageRouteInfo<void> {
-  const PreparationRoute({List<_i11.PageRouteInfo>? children})
+class PreparationRoute extends _i12.PageRouteInfo<void> {
+  const PreparationRoute({List<_i12.PageRouteInfo>? children})
       : super(
           PreparationRoute.name,
           initialChildren: children,
@@ -261,13 +268,13 @@ class PreparationRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'PreparationRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i7.SettingPage]
-class SettingRoute extends _i11.PageRouteInfo<void> {
-  const SettingRoute({List<_i11.PageRouteInfo>? children})
+class SettingRoute extends _i12.PageRouteInfo<void> {
+  const SettingRoute({List<_i12.PageRouteInfo>? children})
       : super(
           SettingRoute.name,
           initialChildren: children,
@@ -275,20 +282,34 @@ class SettingRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'SettingRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.UmraDetailPage]
-class UmraDetailRoute extends _i11.PageRouteInfo<UmraDetailRouteArgs> {
+/// [_i8.SplashScreen]
+class SplashRoute extends _i12.PageRouteInfo<void> {
+  const SplashRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.UmraDetailPage]
+class UmraDetailRoute extends _i12.PageRouteInfo<UmraDetailRouteArgs> {
   UmraDetailRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     required String title,
     required String arabicText,
     required String subtitle,
     required String transliteration,
     required String translation,
-    List<_i11.PageRouteInfo>? children,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           UmraDetailRoute.name,
           args: UmraDetailRouteArgs(
@@ -304,8 +325,8 @@ class UmraDetailRoute extends _i11.PageRouteInfo<UmraDetailRouteArgs> {
 
   static const String name = 'UmraDetailRoute';
 
-  static const _i11.PageInfo<UmraDetailRouteArgs> page =
-      _i11.PageInfo<UmraDetailRouteArgs>(name);
+  static const _i12.PageInfo<UmraDetailRouteArgs> page =
+      _i12.PageInfo<UmraDetailRouteArgs>(name);
 }
 
 class UmraDetailRouteArgs {
@@ -318,7 +339,7 @@ class UmraDetailRouteArgs {
     required this.translation,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final String title;
 
@@ -337,12 +358,12 @@ class UmraDetailRouteArgs {
 }
 
 /// generated route for
-/// [_i9.UmraDuaPage]
-class UmraDuaRoute extends _i11.PageRouteInfo<UmraDuaRouteArgs> {
+/// [_i10.UmraDuaPage]
+class UmraDuaRoute extends _i12.PageRouteInfo<UmraDuaRouteArgs> {
   UmraDuaRoute({
-    _i12.Key? key,
-    required _i13.SectionModel section,
-    List<_i11.PageRouteInfo>? children,
+    _i13.Key? key,
+    required _i14.SectionModel section,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           UmraDuaRoute.name,
           args: UmraDuaRouteArgs(
@@ -354,8 +375,8 @@ class UmraDuaRoute extends _i11.PageRouteInfo<UmraDuaRouteArgs> {
 
   static const String name = 'UmraDuaRoute';
 
-  static const _i11.PageInfo<UmraDuaRouteArgs> page =
-      _i11.PageInfo<UmraDuaRouteArgs>(name);
+  static const _i12.PageInfo<UmraDuaRouteArgs> page =
+      _i12.PageInfo<UmraDuaRouteArgs>(name);
 }
 
 class UmraDuaRouteArgs {
@@ -364,9 +385,9 @@ class UmraDuaRouteArgs {
     required this.section,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
-  final _i13.SectionModel section;
+  final _i14.SectionModel section;
 
   @override
   String toString() {
@@ -375,9 +396,9 @@ class UmraDuaRouteArgs {
 }
 
 /// generated route for
-/// [_i10.UmraPage]
-class UmraRoute extends _i11.PageRouteInfo<void> {
-  const UmraRoute({List<_i11.PageRouteInfo>? children})
+/// [_i11.UmraPage]
+class UmraRoute extends _i12.PageRouteInfo<void> {
+  const UmraRoute({List<_i12.PageRouteInfo>? children})
       : super(
           UmraRoute.name,
           initialChildren: children,
@@ -385,5 +406,5 @@ class UmraRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'UmraRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
