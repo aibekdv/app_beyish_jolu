@@ -65,16 +65,16 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(20),
           )),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.router.push(const SettingRoute());
-                },
-                icon: const Icon(
-                  Icons.settings_outlined,
-                  color: AppColors.whiteColor,
-                )),
-          ],
+          // actions: [
+          //   IconButton(
+          //       onPressed: () {
+          //         context.router.push(const SettingRoute());
+          //       },
+          //       icon: const Icon(
+          //         Icons.settings_outlined,
+          //         color: AppColors.whiteColor,
+          //       )),
+          // ],
         ),
         body: Stack(children: [
           Image.asset('assets/images/home/Vector.png'),
@@ -113,6 +113,7 @@ class _HomePageState extends State<HomePage> {
                               SvgPicture.asset(
                                 gridMenu[index].img,
                                 height: 45,
+                                // ignore: deprecated_member_use
                                 color: AppColors.whiteColor,
                               ),
                               const SizedBox(height: 10),

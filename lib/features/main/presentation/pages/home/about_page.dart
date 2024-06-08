@@ -27,7 +27,7 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   void nextPage() {
-    if (_currentPage < widget.description.length - 1) {
+    if (_currentPage < widget.title.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -71,7 +71,7 @@ class _AboutPageState extends State<AboutPage> {
               child: PageView.builder(
                   controller: pageController,
                   onPageChanged: onPagechanged,
-                  itemCount: widget.description.length,
+                  itemCount: widget.title.length,
                   itemBuilder: (context, index) {
                     return SizedBox(
                       width: double.infinity,
@@ -133,7 +133,7 @@ class _AboutPageState extends State<AboutPage> {
                   onTap: previousPage,
                   text: 'Назад',
                 ),
-                Text(' ${_currentPage + 1}/${widget.description.length}'),
+                Text(' ${_currentPage + 1}/${widget.title.length}'),
                 CustomButton(
                     onTap: () {
                       nextPage();
@@ -146,7 +146,7 @@ class _AboutPageState extends State<AboutPage> {
               thumbColor: Colors.white,
               value: (_currentPage + 1).toDouble(),
               min: 1,
-              max: widget.description.length.toDouble(),
+              max: widget.title.length.toDouble(),
               onChanged: (value) {
                 setState(() {
                   int page = value.toInt() - 1;
