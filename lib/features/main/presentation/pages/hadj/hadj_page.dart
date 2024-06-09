@@ -48,7 +48,8 @@ class HadjPage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   onTap: () {
-                    context.router.push(UmraDetailRoute(section: hadj));
+                    context.router.push(
+                        UmraDetailRoute(initialPage: index, section: hadj));
                   },
                 );
               },

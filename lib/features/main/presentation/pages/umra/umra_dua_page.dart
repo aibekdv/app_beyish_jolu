@@ -48,7 +48,8 @@ class UmraDuaPage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   onTap: () {
-                    context.router.push(UmraDetailRoute(section: section));
+                    context.router.push(
+                        UmraDetailRoute(initialPage: index, section: section));
                   },
                 );
               },

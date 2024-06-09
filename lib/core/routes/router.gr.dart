@@ -45,6 +45,7 @@ abstract class $AppRouter extends _i11.RootStackRouter {
           key: args.key,
           aboutModel: args.aboutModel,
           appBarTitle: args.appBarTitle,
+          initialPage: args.initialPage,
         ),
       );
     },
@@ -94,6 +95,7 @@ abstract class $AppRouter extends _i11.RootStackRouter {
         routeData: routeData,
         child: _i8.UmraDetailPage(
           key: args.key,
+          initialPage: args.initialPage,
           section: args.section,
         ),
       );
@@ -124,6 +126,7 @@ class AboutRoute extends _i11.PageRouteInfo<AboutRouteArgs> {
     _i12.Key? key,
     required List<_i13.AboutModel> aboutModel,
     required String appBarTitle,
+    required int initialPage,
     List<_i11.PageRouteInfo>? children,
   }) : super(
           AboutRoute.name,
@@ -131,6 +134,7 @@ class AboutRoute extends _i11.PageRouteInfo<AboutRouteArgs> {
             key: key,
             aboutModel: aboutModel,
             appBarTitle: appBarTitle,
+            initialPage: initialPage,
           ),
           initialChildren: children,
         );
@@ -146,6 +150,7 @@ class AboutRouteArgs {
     this.key,
     required this.aboutModel,
     required this.appBarTitle,
+    required this.initialPage,
   });
 
   final _i12.Key? key;
@@ -154,9 +159,11 @@ class AboutRouteArgs {
 
   final String appBarTitle;
 
+  final int initialPage;
+
   @override
   String toString() {
-    return 'AboutRouteArgs{key: $key, aboutModel: $aboutModel, appBarTitle: $appBarTitle}';
+    return 'AboutRouteArgs{key: $key, aboutModel: $aboutModel, appBarTitle: $appBarTitle, initialPage: $initialPage}';
   }
 }
 
@@ -273,12 +280,14 @@ class SplashRoute extends _i11.PageRouteInfo<void> {
 class UmraDetailRoute extends _i11.PageRouteInfo<UmraDetailRouteArgs> {
   UmraDetailRoute({
     _i12.Key? key,
+    required int initialPage,
     required _i14.SectionModel section,
     List<_i11.PageRouteInfo>? children,
   }) : super(
           UmraDetailRoute.name,
           args: UmraDetailRouteArgs(
             key: key,
+            initialPage: initialPage,
             section: section,
           ),
           initialChildren: children,
@@ -293,16 +302,19 @@ class UmraDetailRoute extends _i11.PageRouteInfo<UmraDetailRouteArgs> {
 class UmraDetailRouteArgs {
   const UmraDetailRouteArgs({
     this.key,
+    required this.initialPage,
     required this.section,
   });
 
   final _i12.Key? key;
 
+  final int initialPage;
+
   final _i14.SectionModel section;
 
   @override
   String toString() {
-    return 'UmraDetailRouteArgs{key: $key, section: $section}';
+    return 'UmraDetailRouteArgs{key: $key, initialPage: $initialPage, section: $section}';
   }
 }
 

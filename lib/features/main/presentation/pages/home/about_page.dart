@@ -8,10 +8,12 @@ import 'package:beyish_jolu/features/main/models/fine_model.dart';
 class AboutPage extends StatefulWidget {
   final List<AboutModel> aboutModel;
   final String appBarTitle;
+  final int initialPage;
   const AboutPage({
     super.key,
     required this.aboutModel,
     required this.appBarTitle,
+    required this.initialPage,
   });
 
   @override
@@ -19,9 +21,17 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  final PageController pageController = PageController();
+  late PageController pageController = PageController();
 
   int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: widget.initialPage);
+    _currentPage = widget.initialPage;
+  }
+
   void onPagechanged(int page) {
     setState(() {
       _currentPage = page;

@@ -48,6 +48,7 @@ class FinePage extends StatelessWidget {
                       ),
                       onTap: () {
                         context.router.push(AboutRoute(
+                            initialPage: index,
                             appBarTitle: 'Айып жазалар бөлүмү',
                             aboutModel: aboutFineModel));
                       },
