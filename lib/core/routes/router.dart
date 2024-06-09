@@ -16,5 +16,6 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: AboutRoute.page),
         AutoRoute(page: UmraDetailRoute.page),
         AutoRoute(page: SplashRoute.page, initial: true),
+        AutoRoute(page: CategoryHadjRoute.page)
       ];
 }

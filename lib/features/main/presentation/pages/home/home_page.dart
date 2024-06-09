@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/features/main/models/hadj_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -23,9 +22,7 @@ class _HomePageState extends State<HomePage> {
           img: "assets/images/home/ajylyk.png",
           title: "Ажылык",
           onTap: () {
-            context.router.push(HadjRoute(
-              hadj: hadj[0],
-            ));
+            context.router.push(const CategoryHadjRoute());
           }),
       GridMenuItem(
         img: "assets/images/home/umra.png",

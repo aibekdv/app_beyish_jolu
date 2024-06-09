@@ -25,7 +25,7 @@ class ModuleHorWidget extends StatelessWidget {
         side: const BorderSide(color: AppColors.mainColor),
         borderRadius: BorderRadius.circular(10),
       ),
-      contentPadding: const EdgeInsets.all(10),
+      contentPadding: const EdgeInsets.all(12),
       leading: leading,
       trailing: trailing,
       title: Text(title,

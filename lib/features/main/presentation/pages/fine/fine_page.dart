@@ -33,29 +33,24 @@ class FinePage extends StatelessWidget {
                   const EdgeInsets.only(left: 16.00, right: 16.00, top: 25),
               child: ListView.separated(
                   itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
+                    return ListTile(
+                      minTileHeight: 50,
+                      tileColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      title: Text(
+                        aboutFineModel[index].title,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500),
+                      ),
                       onTap: () {
                         context.router.push(AboutRoute(
-                          aboutModel: aboutFineModel,
-                          appBarTitle: 'Айып жазалар бөлүмү',
-                        ));
+                            appBarTitle: 'Айып жазалар бөлүмү',
+                            aboutModel: aboutFineModel));
                       },
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Text(
-                              aboutFineModel[index].title,
-                              style: const TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        ),
-                      ),
                     );
                   },
                   separatorBuilder: (context, int index) {
