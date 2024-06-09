@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
@@ -169,33 +170,6 @@ class _AboutPageState extends State<AboutPage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required this.text,
-    required this.onTap,
-  });
-  final String text;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          side: const BorderSide(
-            color: Color(0XFF4B7F7F),
-          ),
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.white),
-      onPressed: onTap,
-      child: Text(text),
     );
   }
 }
