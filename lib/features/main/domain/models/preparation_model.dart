@@ -1,4 +1,4 @@
-import 'package:beyish_jolu/features/main/models/fine_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
 
 final List<AboutModel> preparationModel1 = [
   AboutModel(

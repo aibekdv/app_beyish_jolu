@@ -1,4 +1,4 @@
-import 'package:beyish_jolu/features/main/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
 
 final List<SectionModel> hadj = [
   SectionModel(

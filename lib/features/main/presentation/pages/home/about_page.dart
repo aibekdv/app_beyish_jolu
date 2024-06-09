@@ -2,7 +2,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:beyish_jolu/features/main/models/fine_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
 
 @RoutePage()
 class AboutPage extends StatefulWidget {
@@ -98,7 +98,6 @@ class _AboutPageState extends State<AboutPage> {
                             children: [
                               Container(
                                 alignment: Alignment.centerLeft,
-                                height: 50,
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(12.0),
                                 decoration: BoxDecoration(
