@@ -37,11 +37,8 @@ class UmraDuaPage extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     context.router.push(UmraDetailRoute(
-                        title: section.title,
-                        arabicText: section.duas[index].arabicText,
-                        subtitle: section.duas[index].subtitle,
-                        transliteration: section.duas[index].transliteration,
-                        translation: section.duas[index].translation));
+                      section: section,
+                    ));
                   },
                   child: SizedBox(
                     width: double.infinity,

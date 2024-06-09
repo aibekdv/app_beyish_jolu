@@ -1,16 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import 'package:beyish_jolu/features/main/models/fine_model.dart';
+
 @RoutePage()
 class AboutPage extends StatefulWidget {
+  final List<AboutModel> aboutModel;
   final String appBarTitle;
-  final String title;
-  final String description;
-  const AboutPage(
-      {super.key,
-      required this.title,
-      required this.description,
-      required this.appBarTitle});
+  const AboutPage({
+    super.key,
+    required this.aboutModel,
+    required this.appBarTitle,
+  });
 
   @override
   State<AboutPage> createState() => _AboutPageState();
@@ -27,7 +29,7 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   void nextPage() {
-    if (_currentPage < widget.title.length - 1) {
+    if (_currentPage < widget.aboutModel.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -71,7 +73,7 @@ class _AboutPageState extends State<AboutPage> {
               child: PageView.builder(
                   controller: pageController,
                   onPageChanged: onPagechanged,
-                  itemCount: widget.title.length,
+                  itemCount: widget.aboutModel.length,
                   itemBuilder: (context, index) {
                     return SizedBox(
                       width: double.infinity,
@@ -94,7 +96,7 @@ class _AboutPageState extends State<AboutPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Text(
-                                  widget.title,
+                                  widget.aboutModel[index].title,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       color: Colors.white,
@@ -111,7 +113,7 @@ class _AboutPageState extends State<AboutPage> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Text(
-                                      widget.description,
+                                      widget.aboutModel[index].description,
                                       style: const TextStyle(
                                           fontSize: 15, color: Colors.black),
                                     ),
@@ -133,7 +135,7 @@ class _AboutPageState extends State<AboutPage> {
                   onTap: previousPage,
                   text: 'Назад',
                 ),
-                Text(' ${_currentPage + 1}/${widget.title.length}'),
+                Text(' ${_currentPage + 1}/${widget.aboutModel.length}'),
                 CustomButton(
                     onTap: () {
                       nextPage();
@@ -146,7 +148,7 @@ class _AboutPageState extends State<AboutPage> {
               thumbColor: Colors.white,
               value: (_currentPage + 1).toDouble(),
               min: 1,
-              max: widget.title.length.toDouble(),
+              max: widget.aboutModel.length.toDouble(),
               onChanged: (value) {
                 setState(() {
                   int page = value.toInt() - 1;

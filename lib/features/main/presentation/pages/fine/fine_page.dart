@@ -40,9 +40,9 @@ class FinePage extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         context.router.push(AboutRoute(
-                            appBarTitle: 'Айып жазалар бөлүмү',
-                            title: aboutFineModel[index].title,
-                            description: aboutFineModel[index].description));
+                          aboutModel: aboutFineModel,
+                          appBarTitle: 'Айып жазалар бөлүмү',
+                        ));
                       },
                       child: SizedBox(
                         width: double.infinity,

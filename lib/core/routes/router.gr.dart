@@ -9,7 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:beyish_jolu/features/main/models/umra_model.dart' as _i14;
+import 'package:beyish_jolu/features/main/models/fine_model.dart' as _i14;
+import 'package:beyish_jolu/features/main/models/umra_model.dart' as _i15;
 import 'package:beyish_jolu/features/main/presentation/pages/fine/fine_page.dart'
     as _i3;
 import 'package:beyish_jolu/features/main/presentation/pages/hadj/category_hadj_page.dart'
@@ -44,8 +45,7 @@ abstract class $AppRouter extends _i12.RootStackRouter {
         routeData: routeData,
         child: _i1.AboutPage(
           key: args.key,
-          title: args.title,
-          description: args.description,
+          aboutModel: args.aboutModel,
           appBarTitle: args.appBarTitle,
         ),
       );
@@ -102,11 +102,7 @@ abstract class $AppRouter extends _i12.RootStackRouter {
         routeData: routeData,
         child: _i9.UmraDetailPage(
           key: args.key,
-          title: args.title,
-          arabicText: args.arabicText,
-          subtitle: args.subtitle,
-          transliteration: args.transliteration,
-          translation: args.translation,
+          section: args.section,
         ),
       );
     },
@@ -134,16 +130,14 @@ abstract class $AppRouter extends _i12.RootStackRouter {
 class AboutRoute extends _i12.PageRouteInfo<AboutRouteArgs> {
   AboutRoute({
     _i13.Key? key,
-    required String title,
-    required String description,
+    required List<_i14.AboutModel> aboutModel,
     required String appBarTitle,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           AboutRoute.name,
           args: AboutRouteArgs(
             key: key,
-            title: title,
-            description: description,
+            aboutModel: aboutModel,
             appBarTitle: appBarTitle,
           ),
           initialChildren: children,
@@ -158,22 +152,19 @@ class AboutRoute extends _i12.PageRouteInfo<AboutRouteArgs> {
 class AboutRouteArgs {
   const AboutRouteArgs({
     this.key,
-    required this.title,
-    required this.description,
+    required this.aboutModel,
     required this.appBarTitle,
   });
 
   final _i13.Key? key;
 
-  final String title;
-
-  final String description;
+  final List<_i14.AboutModel> aboutModel;
 
   final String appBarTitle;
 
   @override
   String toString() {
-    return 'AboutRouteArgs{key: $key, title: $title, description: $description, appBarTitle: $appBarTitle}';
+    return 'AboutRouteArgs{key: $key, aboutModel: $aboutModel, appBarTitle: $appBarTitle}';
   }
 }
 
@@ -210,7 +201,7 @@ class FineRoute extends _i12.PageRouteInfo<void> {
 class HadjRoute extends _i12.PageRouteInfo<HadjRouteArgs> {
   HadjRoute({
     _i13.Key? key,
-    required _i14.SectionModel hadj,
+    required _i15.SectionModel hadj,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           HadjRoute.name,
@@ -235,7 +226,7 @@ class HadjRouteArgs {
 
   final _i13.Key? key;
 
-  final _i14.SectionModel hadj;
+  final _i15.SectionModel hadj;
 
   @override
   String toString() {
@@ -304,21 +295,13 @@ class SplashRoute extends _i12.PageRouteInfo<void> {
 class UmraDetailRoute extends _i12.PageRouteInfo<UmraDetailRouteArgs> {
   UmraDetailRoute({
     _i13.Key? key,
-    required String title,
-    required String arabicText,
-    required String subtitle,
-    required String transliteration,
-    required String translation,
+    required _i15.SectionModel section,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           UmraDetailRoute.name,
           args: UmraDetailRouteArgs(
             key: key,
-            title: title,
-            arabicText: arabicText,
-            subtitle: subtitle,
-            transliteration: transliteration,
-            translation: translation,
+            section: section,
           ),
           initialChildren: children,
         );
@@ -332,28 +315,16 @@ class UmraDetailRoute extends _i12.PageRouteInfo<UmraDetailRouteArgs> {
 class UmraDetailRouteArgs {
   const UmraDetailRouteArgs({
     this.key,
-    required this.title,
-    required this.arabicText,
-    required this.subtitle,
-    required this.transliteration,
-    required this.translation,
+    required this.section,
   });
 
   final _i13.Key? key;
 
-  final String title;
-
-  final String arabicText;
-
-  final String subtitle;
-
-  final String transliteration;
-
-  final String translation;
+  final _i15.SectionModel section;
 
   @override
   String toString() {
-    return 'UmraDetailRouteArgs{key: $key, title: $title, arabicText: $arabicText, subtitle: $subtitle, transliteration: $transliteration, translation: $translation}';
+    return 'UmraDetailRouteArgs{key: $key, section: $section}';
   }
 }
 
@@ -362,7 +333,7 @@ class UmraDetailRouteArgs {
 class UmraDuaRoute extends _i12.PageRouteInfo<UmraDuaRouteArgs> {
   UmraDuaRoute({
     _i13.Key? key,
-    required _i14.SectionModel section,
+    required _i15.SectionModel section,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           UmraDuaRoute.name,
@@ -387,7 +358,7 @@ class UmraDuaRouteArgs {
 
   final _i13.Key? key;
 
-  final _i14.SectionModel section;
+  final _i15.SectionModel section;
 
   @override
   String toString() {

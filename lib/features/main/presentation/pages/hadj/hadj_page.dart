@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/features/main/models/umra_model.dart';
-import 'package:beyish_jolu/features/main/presentation/pages/umra/umra_detail_page.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -36,16 +36,7 @@ class HadjPage extends StatelessWidget {
                 final dua = hadj.duas[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => UmraDetailPage(
-                                title: hadj.title,
-                                arabicText: hadj.duas[index].arabicText,
-                                subtitle: hadj.duas[index].subtitle,
-                                transliteration:
-                                    hadj.duas[index].transliteration,
-                                translation: hadj.duas[index].translation)));
+                    context.router.push(UmraDetailRoute(section: hadj));
                   },
                   child: SizedBox(
                     width: double.infinity,
