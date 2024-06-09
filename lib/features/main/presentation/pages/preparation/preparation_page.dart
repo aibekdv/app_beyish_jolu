@@ -46,9 +46,9 @@ class PreparationPage extends StatelessWidget {
             itemCount: preparationModel1.length,
             onTap: (index) {
               context.router.push(AboutRoute(
-                  appBarTitle: 'Даярдык бөлүмү',
-                  title: preparationModel1[index].title,
-                  description: preparationModel1[index].description));
+                appBarTitle: 'Даярдык бөлүмү',
+                aboutModel: preparationModel1,
+              ));
             },
           ),
           const SliverToBoxAdapter(
@@ -66,9 +66,9 @@ class PreparationPage extends StatelessWidget {
             itemCount: preparationmodel2.length,
             onTap: (index) {
               context.router.push(AboutRoute(
-                  appBarTitle: 'Даярдык бөлүмү',
-                  title: preparationmodel2[index].title,
-                  description: preparationmodel2[index].description));
+                appBarTitle: 'Даярдык бөлүмү',
+                aboutModel: preparationmodel2,
+              ));
             },
           ),
           const SliverToBoxAdapter(
@@ -87,8 +87,7 @@ class PreparationPage extends StatelessWidget {
             onTap: (index) {
               context.router.push(AboutRoute(
                   appBarTitle: 'Даярдык бөлүмү',
-                  title: preparationmodel3[index].title,
-                  description: preparationmodel3[index].description));
+                  aboutModel: preparationmodel3));
             },
           ),
           const SliverToBoxAdapter(
@@ -110,8 +109,7 @@ class PreparationPage extends StatelessWidget {
             onTap: (index) {
               context.router.push(AboutRoute(
                   appBarTitle: 'Даярдык бөлүмү',
-                  title: preparationmodel4[index].title,
-                  description: preparationmodel4[index].description));
+                  aboutModel: preparationmodel4));
             },
           ),
         ],

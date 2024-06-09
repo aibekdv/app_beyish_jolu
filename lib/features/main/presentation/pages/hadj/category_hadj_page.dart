@@ -4,7 +4,6 @@ import 'package:beyish_jolu/core/theme/app_colors.dart';
 import 'package:beyish_jolu/features/main/models/hadj_model.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
 class CategoryHadjPage extends StatefulWidget {
@@ -39,41 +38,40 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
             Image.asset('assets/images/home/Vector.png'),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => ModuleHorWidget(
-                  leading: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        "assets/images/home/logo.svg",
-                        width: 30,
-                      ),
-                      Text(
-                        "${index + 1}",
-                        style: const TextStyle(
-                          color: AppColors.whiteColor,
-                          fontSize: 10,
+              child: Center(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => ModuleHorWidget(
+                    leading: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset('assets/images/home/number.png', width: 30),
+                        Text(
+                          "${index + 1}",
+                          style: const TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    title: hadj[index].title,
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 15,
+                      color: Colors.grey,
+                    ),
+                    onTap: () {
+                      context.router.push(HadjRoute(
+                        hadj: hadj[index],
+                      ));
+                    },
                   ),
-                  title: hadj[index].title,
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: 15,
-                    color: Colors.grey,
-                  ),
-                  onTap: () {
-                    context.router.push(HadjRoute(
-                      hadj: hadj[index],
-                    ));
-                  },
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 20),
+                  itemCount: hadj.length,
                 ),
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 20),
-                itemCount: hadj.length,
               ),
             ),
           ],

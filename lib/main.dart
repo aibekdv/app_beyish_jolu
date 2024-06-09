@@ -1,11 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:beyish_jolu/core/routes/router.dart';
-import 'package:beyish_jolu/core/theme/theme.dart';
 import 'package:beyish_jolu/features/main/domain/repositories/settings/setting_repository.dart';
 
 void main() async {
@@ -37,22 +33,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => ThemeCubit(settingRepository: settingRepository),
-        ),
-      ],
-      child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, themeState) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            theme: themeState.isdark ? darkTheme : lightTheme,
-            routerDelegate: appRouter.delegate(),
-            routeInformationParser: appRouter.defaultRouteParser(),
-          );
-        },
-      ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
     );
   }
 }

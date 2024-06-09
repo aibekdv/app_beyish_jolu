@@ -30,35 +30,26 @@ class UmraDuaPage extends StatelessWidget {
       body: Stack(children: [
         Image.asset('assets/images/home/Vector.png'),
         Padding(
-          padding: const EdgeInsets.only(left: 16.00, right: 16.00, top: 25),
+          padding: const EdgeInsets.all(16.0),
           child: ListView.separated(
               itemBuilder: (BuildContext context, int index) {
                 final dua = section.duas[index];
-                return GestureDetector(
-                  onTap: () {
-                    context.router.push(UmraDetailRoute(
-                        title: section.title,
-                        arabicText: section.duas[index].arabicText,
-                        subtitle: section.duas[index].subtitle,
-                        transliteration: section.duas[index].transliteration,
-                        translation: section.duas[index].translation));
-                  },
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          dua.subtitle,
-                          style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ),
+                return ListTile(
+                  minTileHeight: 50,
+                  tileColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
+                  title: Text(
+                    dua.subtitle,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  onTap: () {
+                    context.router.push(UmraDetailRoute(section: section));
+                  },
                 );
               },
               separatorBuilder: (context, int index) {

@@ -19,25 +19,22 @@ class ModuleHorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        color: AppColors.whiteColor,
-        borderRadius: BorderRadius.all(
-          Radius.circular(10),
-        ),
+    return ListTile(
+      tileColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        side: const BorderSide(color: AppColors.mainColor),
+        borderRadius: BorderRadius.circular(10),
       ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(10),
-        leading: leading,
-        trailing: trailing,
-        title: Text(title,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            )),
-        onTap: onTap,
-      ),
+      contentPadding: const EdgeInsets.all(12),
+      leading: leading,
+      trailing: trailing,
+      title: Text(title,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+          )),
+      onTap: onTap,
     );
   }
 }

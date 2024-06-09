@@ -4,7 +4,6 @@ import 'package:beyish_jolu/core/theme/app_colors.dart';
 import 'package:beyish_jolu/features/main/models/umra_model.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
 class UmraPage extends StatefulWidget {
@@ -38,41 +37,43 @@ class _UmraPageState extends State<UmraPage> {
           children: [
             Image.asset('assets/images/home/Vector.png'),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 140),
-              child: ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => ModuleHorWidget(
-                  leading: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        "assets/images/home/logo.svg",
-                        width: 30,
-                      ),
-                      Text(
-                        "${index + 1}",
-                        style: const TextStyle(
-                          color: AppColors.whiteColor,
-                          fontSize: 10,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Center(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => ModuleHorWidget(
+                    leading: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/home/number.png",
+                          width: 30,
                         ),
-                      ),
-                    ],
+                        Text(
+                          "${index + 1}",
+                          style: const TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                    title: sections[index].title,
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 15,
+                      color: Colors.grey,
+                    ),
+                    onTap: () {
+                      context.router
+                          .push(UmraDuaRoute(section: sections[index]));
+                    },
                   ),
-                  title: sections[index].title,
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: 15,
-                    color: Colors.grey,
-                  ),
-                  onTap: () {
-                    context.router.push(UmraDuaRoute(section: sections[index]));
-                  },
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 15),
+                  itemCount: sections.length,
                 ),
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 20),
-                itemCount: sections.length,
               ),
             ),
           ],

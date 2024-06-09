@@ -1,21 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import 'package:beyish_jolu/features/main/models/umra_model.dart';
+
 @RoutePage()
 class UmraDetailPage extends StatefulWidget {
-  final String title;
-  final String subtitle;
-  final String arabicText;
-  final String transliteration;
-  final String translation;
+  final SectionModel section;
 
-  const UmraDetailPage(
-      {super.key,
-      required this.title,
-      required this.arabicText,
-      required this.subtitle,
-      required this.transliteration,
-      required this.translation});
+  const UmraDetailPage({
+    super.key,
+    required this.section,
+  });
 
   @override
   State<UmraDetailPage> createState() => _UmraDetailPageState();
@@ -32,7 +28,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
   }
 
   void nextPage() {
-    if (_currentPage < widget.title.length - 1) {
+    if (_currentPage < widget.section.duas.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -61,7 +57,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
-          widget.title,
+          widget.section.title,
           style:
               const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
@@ -76,7 +72,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
               child: PageView.builder(
                   controller: pageController,
                   onPageChanged: onPagechanged,
-                  itemCount: widget.title.length,
+                  itemCount: widget.section.duas.length,
                   itemBuilder: (context, index) {
                     return SizedBox(
                       width: double.infinity,
@@ -98,7 +94,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Text(
-                                  widget.subtitle,
+                                  widget.section.duas[index].subtitle,
                                   textAlign: TextAlign.center,
                                   maxLines: 2,
                                   style: const TextStyle(
@@ -119,7 +115,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          widget.arabicText,
+                                          widget.section.duas[index].arabicText,
                                           style: const TextStyle(
                                               fontSize: 17,
                                               fontWeight: FontWeight.w500,
@@ -135,7 +131,10 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
                                                 color: Colors.black),
                                             children: <TextSpan>[
                                               TextSpan(
-                                                  text: widget.transliteration,
+                                                  text: widget
+                                                      .section
+                                                      .duas[index]
+                                                      .transliteration,
                                                   style: const TextStyle(
                                                       fontSize: 17,
                                                       fontWeight:
@@ -153,7 +152,8 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
                                                 color: Colors.black),
                                             children: <TextSpan>[
                                               TextSpan(
-                                                  text: widget.translation,
+                                                  text: widget.section
+                                                      .duas[index].translation,
                                                   style: const TextStyle(
                                                       fontSize: 17,
                                                       fontWeight:
@@ -181,7 +181,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
                   onTap: previousPage,
                   text: 'Назад',
                 ),
-                Text('${_currentPage + 1}/${widget.title.length}'),
+                Text('${_currentPage + 1}/${widget.section.duas.length}'),
                 CustomButton(onTap: nextPage, text: 'Вперед'),
               ],
             ),
@@ -190,7 +190,7 @@ class _UmraDetailPageState extends State<UmraDetailPage> {
               thumbColor: Colors.white,
               value: (_currentPage + 1).toDouble(),
               min: 1,
-              max: widget.title.length.toDouble(),
+              max: widget.section.duas.length.toDouble(),
               onChanged: (value) {
                 int page = value.toInt();
                 pageController.jumpToPage(page);
