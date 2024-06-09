@@ -334,7 +334,7 @@ final List<SectionModel> hadj = [
       ),
     ],
   ),
-  SectionModel(title: ' Ажылык бөлүмү ', duas: [
+  SectionModel(title: 'Ажылык бөлүмү ', duas: [
     DuaModel(
       subtitle: 'Минадан Арафатка жөнөө дуасы',
       arabicText:
