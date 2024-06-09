@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
-import 'package:beyish_jolu/features/main/models/fine_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -48,6 +48,7 @@ class FinePage extends StatelessWidget {
                       ),
                       onTap: () {
                         context.router.push(AboutRoute(
+                            initialPage: index,
                             appBarTitle: 'Айып жазалар бөлүмү',
                             aboutModel: aboutFineModel));
                       },

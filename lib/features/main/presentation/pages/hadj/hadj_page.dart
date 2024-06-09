@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
-import 'package:beyish_jolu/features/main/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -48,7 +48,8 @@ class HadjPage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   onTap: () {
-                    context.router.push(UmraDetailRoute(section: hadj));
+                    context.router.push(
+                        UmraDetailRoute(initialPage: index, section: hadj));
                   },
                 );
               },

@@ -2,16 +2,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:beyish_jolu/features/main/models/fine_model.dart';
+import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
 
 @RoutePage()
 class AboutPage extends StatefulWidget {
   final List<AboutModel> aboutModel;
   final String appBarTitle;
+  final int initialPage;
   const AboutPage({
     super.key,
     required this.aboutModel,
     required this.appBarTitle,
+    required this.initialPage,
   });
 
   @override
@@ -19,9 +21,17 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  final PageController pageController = PageController();
+  late PageController pageController = PageController();
 
   int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: widget.initialPage);
+    _currentPage = widget.initialPage;
+  }
+
   void onPagechanged(int page) {
     setState(() {
       _currentPage = page;
@@ -88,7 +98,6 @@ class _AboutPageState extends State<AboutPage> {
                             children: [
                               Container(
                                 alignment: Alignment.centerLeft,
-                                height: 50,
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(12.0),
                                 decoration: BoxDecoration(
