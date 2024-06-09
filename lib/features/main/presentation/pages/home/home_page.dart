@@ -1,11 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
 import 'package:beyish_jolu/features/main/models/hadj_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -23,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     gridMenu = [
       GridMenuItem(
-          img: "assets/images/home/prep.svg",
+          img: "assets/images/home/ajylyk.png",
           title: "Ажылык",
           onTap: () {
             context.router.push(HadjRoute(
@@ -31,21 +28,21 @@ class _HomePageState extends State<HomePage> {
             ));
           }),
       GridMenuItem(
-        img: "assets/images/home/fine.svg",
+        img: "assets/images/home/umra.png",
         title: "Умра",
         onTap: () {
           context.router.push(const UmraRoute());
         },
       ),
       GridMenuItem(
-        img: "assets/images/home/prep.svg",
+        img: "assets/images/home/prep.png",
         title: "Даярдык",
         onTap: () {
           context.router.push(const PreparationRoute());
         },
       ),
       GridMenuItem(
-          img: "assets/images/home/fine.svg",
+          img: "assets/images/home/fine.png",
           title: "Айып жазалары",
           onTap: () {
             context.router.push(const FineRoute());
@@ -55,26 +52,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final isdark = context.watch<ThemeCubit>().state.isdark;
-
     return Scaffold(
         backgroundColor: AppColors.bgcColor,
         appBar: AppBar(
-          backgroundColor: isdark ? Colors.black : AppColors.mainColor,
+          backgroundColor: AppColors.mainColor,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(20),
           )),
-          // actions: [
-          //   IconButton(
-          //       onPressed: () {
-          //         context.router.push(const SettingRoute());
-          //       },
-          //       icon: const Icon(
-          //         Icons.settings_outlined,
-          //         color: AppColors.whiteColor,
-          //       )),
-          // ],
         ),
         body: Stack(children: [
           Image.asset('assets/images/home/Vector.png'),
@@ -102,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (BuildContext context, int index) {
                       return DecoratedBox(
                         decoration: BoxDecoration(
-                          color: isdark ? Colors.black : AppColors.mainColor,
+                          color: AppColors.mainColor,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: GestureDetector(
@@ -110,10 +95,9 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SvgPicture.asset(
+                              Image.asset(
                                 gridMenu[index].img,
-                                height: 45,
-                                // ignore: deprecated_member_use
+                                height: 65,
                                 color: AppColors.whiteColor,
                               ),
                               const SizedBox(height: 10),

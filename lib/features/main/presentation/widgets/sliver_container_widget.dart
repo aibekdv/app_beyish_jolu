@@ -1,6 +1,4 @@
-import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SliverContainer extends StatelessWidget {
   const SliverContainer({
@@ -15,8 +13,6 @@ class SliverContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isdark = context.watch<ThemeCubit>().state.isdark;
-
     return SliverPadding(
       padding: const EdgeInsets.only(left: 16.00, right: 16.00, top: 16),
       sliver: SliverList.separated(
@@ -28,7 +24,7 @@ class SliverContainer extends StatelessWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: isdark ? Colors.black : Colors.white),
+                      color: Colors.white),
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Text(

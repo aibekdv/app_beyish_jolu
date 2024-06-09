@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:beyish_jolu/bloc/theme_cubit.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/features/main/models/fine_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class FinePage extends StatelessWidget {
@@ -11,8 +9,6 @@ class FinePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isdark = context.watch<ThemeCubit>().state.isdark;
-
     return Scaffold(
       backgroundColor: const Color(0XffEDEDF2),
       appBar: AppBar(
@@ -27,7 +23,7 @@ class FinePage extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
-        backgroundColor: isdark ? Colors.black : const Color(0XFF4B7F7F),
+        backgroundColor: const Color(0XFF4B7F7F),
       ),
       body: Stack(
         children: [
@@ -49,7 +45,7 @@ class FinePage extends StatelessWidget {
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: isdark ? Colors.black : Colors.white),
+                              color: Colors.white),
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Text(
