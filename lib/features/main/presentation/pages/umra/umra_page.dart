@@ -54,7 +54,7 @@ class _UmraPageState extends State<UmraPage> {
                           "${index + 1}",
                           style: const TextStyle(
                             color: AppColors.whiteColor,
-                            fontSize: 10,
+                            fontSize: 12,
                           ),
                         ),
                       ],
