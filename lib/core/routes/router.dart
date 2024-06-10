@@ -16,12 +16,13 @@ class AppRouter extends $AppRouter {
         CustomRoute(page: UmraDetailRoute.page, transitionsBuilder: ctnoAnm),
         CustomRoute(page: AboutRoute.page, transitionsBuilder: ctnoAnm),
         CustomRoute(page: UmraDetailRoute.page, transitionsBuilder: ctnoAnm),
-        CustomRoute(page: SplashRoute.page, transitionsBuilder: ctnoAnm),
+
         CustomRoute(page: CategoryHadjRoute.page, transitionsBuilder: ctnoAnm),
+        CustomRoute(page: HomeRoute.page, transitionsBuilder: ctnoAnm),
         CustomRoute(
-          initial: true,
-          page: HomeRoute.page,
+          page: SplashRoute.page,
           transitionsBuilder: ctnoAnm,
+          initial: true,
         ),
       ];
 }
