@@ -3,16 +3,22 @@ import 'package:flutter/material.dart';
 const _primaryColor = Color(0xFF0A0E21);
 
 final darkTheme = ThemeData(
-  appBarTheme: const AppBarTheme(color: Colors.black),
-  primaryColor: _primaryColor,
-  scaffoldBackgroundColor: const Color.fromARGB(255, 32, 30, 30),
-  textTheme: _textTheme,
-  useMaterial3: true,
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: _primaryColor,
-    brightness: Brightness.dark,
-  ),
-);
+    appBarTheme: const AppBarTheme(color: Colors.black),
+    primaryColor: _primaryColor,
+    scaffoldBackgroundColor: const Color.fromARGB(255, 32, 30, 30),
+    textTheme: _textTheme,
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: _primaryColor,
+      brightness: Brightness.dark,
+    ),
+    listTileTheme: ListTileThemeData(
+      tileColor: Colors.white,
+      // style: ListTileStyle.drawer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ));
 
 final lightTheme = ThemeData(
     appBarTheme: const AppBarTheme(

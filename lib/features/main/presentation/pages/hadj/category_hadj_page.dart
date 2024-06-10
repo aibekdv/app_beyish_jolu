@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/features/main/domain/models/hadj_model.dart';
-import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
+import 'package:beyish_jolu/features/main/data/models/hadj_model.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
 class CategoryHadjPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
         ),
         body: Stack(
           children: [
-            Image.asset('assets/images/home/Vector.png'),
+            Image.asset('assets/images/Vector.png'),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Center(
@@ -46,12 +47,12 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
                     leading: Stack(
                       alignment: Alignment.center,
                       children: [
-                        Image.asset('assets/images/home/number.png', width: 30),
+                        SvgPicture.asset('assets/svg/number.svg', width: 35),
                         Text(
                           "${index + 1}",
                           style: const TextStyle(
                             color: AppColors.whiteColor,
-                            fontSize: 12,
+                            fontSize: 13,
                           ),
                         ),
                       ],
@@ -60,7 +61,7 @@ class _CategoryHadjPageState extends State<CategoryHadjPage> {
                     trailing: const Icon(
                       Icons.arrow_forward_ios_rounded,
                       size: 15,
-                      color: Colors.grey,
+                      color: AppColors.mainColor,
                     ),
                     onTap: () {
                       context.router.push(HadjRoute(

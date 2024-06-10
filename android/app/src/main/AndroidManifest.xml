@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="Бейиш Жолу"
+        android:label="Бейиш жолу"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

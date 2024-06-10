@@ -9,10 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:beyish_jolu/features/main/domain/models/fine_model.dart'
-    as _i13;
-import 'package:beyish_jolu/features/main/domain/models/umra_model.dart'
-    as _i14;
+import 'package:beyish_jolu/features/main/data/models/fine_model.dart' as _i13;
+import 'package:beyish_jolu/features/main/data/models/umra_model.dart' as _i14;
 import 'package:beyish_jolu/features/main/presentation/pages/fine/fine_page.dart'
     as _i3;
 import 'package:beyish_jolu/features/main/presentation/pages/hadj/category_hadj_page.dart'

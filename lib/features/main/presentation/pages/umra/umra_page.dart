@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/core/theme/app_colors.dart';
-import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
-import 'package:beyish_jolu/features/main/presentation/widgets/home/module_hor_widget.dart';
+import 'package:beyish_jolu/features/main/data/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/presentation/widgets/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 @RoutePage()
 class UmraPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _UmraPageState extends State<UmraPage> {
         ),
         body: Stack(
           children: [
-            Image.asset('assets/images/home/Vector.png'),
+            Image.asset('assets/images/Vector.png'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Center(
@@ -46,10 +47,7 @@ class _UmraPageState extends State<UmraPage> {
                     leading: Stack(
                       alignment: Alignment.center,
                       children: [
-                        Image.asset(
-                          "assets/images/home/number.png",
-                          width: 30,
-                        ),
+                       SvgPicture.asset('assets/svg/number.svg', width: 35),
                         Text(
                           "${index + 1}",
                           style: const TextStyle(

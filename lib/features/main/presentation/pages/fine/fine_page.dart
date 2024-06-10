@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
-import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
+import 'package:beyish_jolu/features/main/data/models/fine_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -27,39 +27,43 @@ class FinePage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Image.asset('assets/images/home/Vector.png'),
+          Image.asset('assets/images/Vector.png'),
           Padding(
-              padding:
-                  const EdgeInsets.only(left: 16.00, right: 16.00, top: 25),
-              child: ListView.separated(
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      minTileHeight: 50,
-                      tileColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+            padding: const EdgeInsets.only(left: 16.00, right: 16.00, top: 25),
+            child: ListView.separated(
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  minTileHeight: 50,
+                  tileColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  title: Text(
+                    aboutFineModel[index].title,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  onTap: () {
+                    context.router.push(
+                      AboutRoute(
+                        initialPage: index,
+                        appBarTitle: 'Айып жазалар бөлүмү',
+                        aboutModel: aboutFineModel,
                       ),
-                      title: Text(
-                        aboutFineModel[index].title,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      onTap: () {
-                        context.router.push(AboutRoute(
-                            initialPage: index,
-                            appBarTitle: 'Айып жазалар бөлүмү',
-                            aboutModel: aboutFineModel));
-                      },
                     );
                   },
-                  separatorBuilder: (context, int index) {
-                    return const SizedBox(
-                      height: 10,
-                    );
-                  },
-                  itemCount: aboutFineModel.length)),
+                );
+              },
+              separatorBuilder: (context, int index) {
+                return const SizedBox(height: 10);
+              },
+              itemCount: aboutFineModel.length,
+            ),
+          ),
         ],
       ),
     );

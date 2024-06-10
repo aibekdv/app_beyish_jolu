@@ -1,9 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
+import 'package:beyish_jolu/core/theme/app_colors.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'package:beyish_jolu/features/main/domain/models/fine_model.dart';
+import 'package:beyish_jolu/features/main/data/models/fine_model.dart';
 
 @RoutePage()
 class AboutPage extends StatefulWidget {
@@ -125,7 +125,9 @@ class _AboutPageState extends State<AboutPage> {
                                     child: Text(
                                       widget.aboutModel[index].description,
                                       style: const TextStyle(
-                                          fontSize: 15, color: Colors.black),
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -147,15 +149,17 @@ class _AboutPageState extends State<AboutPage> {
                 ),
                 Text(' ${_currentPage + 1}/${widget.aboutModel.length}'),
                 CustomButton(
-                    onTap: () {
-                      nextPage();
-                    },
-                    text: 'Вперед'),
+                  onTap: () {
+                    nextPage();
+                  },
+                  text: 'Вперед',
+                 ),
               ],
             ),
             const SizedBox(height: 16),
             Slider(
               thumbColor: Colors.white,
+              activeColor: AppColors.mainColor,
               value: (_currentPage + 1).toDouble(),
               min: 1,
               max: widget.aboutModel.length.toDouble(),

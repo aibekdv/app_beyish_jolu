@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
-import 'package:beyish_jolu/features/main/domain/models/preparation_model.dart';
+import 'package:beyish_jolu/features/main/data/models/preparation_model.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
 import 'package:beyish_jolu/features/main/presentation/widgets/sliver_container_widget.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +31,7 @@ class PreparationPage extends StatelessWidget {
       backgroundColor: const Color(0XffEDEDF2),
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 15),
-          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 15)),
           const SliverToBoxAdapter(
             child: Text(
               'Ажылык кандай аткарылат?',
@@ -73,9 +71,7 @@ class PreparationPage extends StatelessWidget {
               ));
             },
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 15),
-          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 15)),
           const SliverToBoxAdapter(
             child: Text(
               'Ажылык менен умрада аялдарга байланыштуу маселелер ',
@@ -87,15 +83,16 @@ class PreparationPage extends StatelessWidget {
             title: preparationmodel3.map((e) => e.title).toList(),
             itemCount: preparationmodel3.length,
             onTap: (index) {
-              context.router.push(AboutRoute(
+              context.router.push(
+                AboutRoute(
                   initialPage: index,
                   appBarTitle: 'Даярдык бөлүмү',
-                  aboutModel: preparationmodel3));
+                  aboutModel: preparationmodel3,
+                ),
+              );
             },
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 15),
-          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 15)),
           const SliverToBoxAdapter(
             child: Text(
               'Умра жана Ажылык учурундагы тыйуулар',
@@ -103,19 +100,21 @@ class PreparationPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 15),
-          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 15)),
           SliverContainer(
             title: preparationmodel4.map((e) => e.title).toList(),
             itemCount: preparationmodel4.length,
             onTap: (index) {
-              context.router.push(AboutRoute(
+              context.router.push(
+                AboutRoute(
                   initialPage: index,
                   appBarTitle: 'Даярдык бөлүмү',
-                  aboutModel: preparationmodel4));
+                  aboutModel: preparationmodel4,
+                ),
+              );
             },
           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 25)),
         ],
       ),
     );

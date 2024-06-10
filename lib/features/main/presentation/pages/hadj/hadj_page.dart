@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:beyish_jolu/core/routes/router.gr.dart';
-import 'package:beyish_jolu/features/main/domain/models/umra_model.dart';
+import 'package:beyish_jolu/features/main/data/models/umra_model.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -28,7 +28,7 @@ class HadjPage extends StatelessWidget {
         backgroundColor: const Color(0XFF4B7F7F),
       ),
       body: Stack(children: [
-        Image.asset('assets/images/home/Vector.png'),
+        Image.asset('assets/images/Vector.png'),
         Padding(
           padding: const EdgeInsets.only(left: 16.00, right: 16.00, top: 25),
           child: ListView.separated(
@@ -49,14 +49,13 @@ class HadjPage extends StatelessWidget {
                   ),
                   onTap: () {
                     context.router.push(
-                        UmraDetailRoute(initialPage: index, section: hadj));
+                      UmraDetailRoute(initialPage: index, section: hadj),
+                    );
                   },
                 );
               },
               separatorBuilder: (context, int index) {
-                return const SizedBox(
-                  height: 10,
-                );
+                return const SizedBox(height: 10);
               },
               itemCount: hadj.duas.length),
         ),
