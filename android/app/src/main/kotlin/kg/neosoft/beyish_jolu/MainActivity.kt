@@ -1,4 +1,4 @@
-package com.example.app_beyish_jolu
+package kg.neosoft.beyish_jolu
 
 import io.flutter.embedding.android.FlutterActivity
 
